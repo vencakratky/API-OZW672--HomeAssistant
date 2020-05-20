@@ -1,2 +1,2 @@
 # API-OZW672--HomeAssistant
-Api OZW672 modul -> Home Asisstant
+Api modul pro připojení Siemens OZW672 webového serveru do Home Asisstant
