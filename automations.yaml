@@ -1,0 +1,27 @@
+// changing state -> send to OZW
+- id: '1589750127952'
+  alias: odeslat_teplotu_do_kotle
+  description: Odeslat teplotu do kotle
+  trigger:
+  - entity_id: input_number.nastaveni_teploty_kotle
+    platform: state
+  condition: []
+  action:
+  - data: {}
+    service: rest_command.odeslatdokotleteplotu
+- id: odeslat_druhprovozu_dokotle
+  alias: Odeslat druh provozu do kotle
+  trigger:
+  - entity_id: input_select.kotel_druh_provozu
+    platform: state
+  action:
+  - data: {}
+    service: rest_command.odeslatdokotle_druhprovozu
+- id: odeslat_utlumovouteplotu_dokotle
+  alias: Odeslat útlumovou teplotu do kotle
+  trigger:
+  - entity_id: input_number.utlumova_teplota_kotle
+    platform: state
+  action:
+  - data: {}
+    service: rest_command.odeslatdokotleutlumovouteplotu
