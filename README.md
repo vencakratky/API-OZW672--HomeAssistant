@@ -15,4 +15,4 @@ http://192.168.X.X/main.app?SessionID=****YourSessionafterlogin***&Section=webap
 3.) Add automations -> see automations.yaml..
 
 # Výsledek / Result
-![](https://github.com/vencakratky/API-OZW672--HomeAssistant/blob/master/kotel.jpg)
+![](https://github.com/vencakratky/API-OZW672--HomeAssistant/blob/master/Result.jpg)
