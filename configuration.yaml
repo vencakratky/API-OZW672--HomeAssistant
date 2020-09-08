@@ -72,6 +72,13 @@
     name: kotel_chybove_hlaseni
     resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2243
     value_template: '{{ value_json.Data.Value }}'
+ // Read datapoint really temperature hot water 
+  - platform: rest
+    name: skutecna_teplota_TV
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2539
+    value_template: '{{ value_json.Data.Value }}'
+    unit_of_measurement: "°C"
+    device_class: temperature
 
 // remote control commands -> write datapoint
 // send comfort temperature from input_number... entity
