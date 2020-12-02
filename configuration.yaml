@@ -7,75 +7,75 @@
  // Read Datapoint comfort Temperature from OZW  
   - platform: rest
     name: kotel_komfortni_zadana_teplota
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2011
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2687
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
 // Read Datapoint reduced Temperature from OZW
   - platform: rest
     name: kotel_utlumova_zadana_teplota
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2012
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2688
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
 // Read other Datapoints ...
   - platform: rest
     name: kotel_topna_krivka
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2014
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2690
     value_template: '{{ value_json.Data.Value | float }}'
     device_class: temperature
   - platform: rest
     name: kotel_modulace_horaku
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2402
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3078
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "%"
     device_class: temperature
   - platform: rest
     name: kotel_stav_horaku
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2386
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3062
     value_template: '{{ value_json.Data.Value }}'
     device_class: temperature
   - platform: rest
     name: kotel_teplota_kotle
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2535
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3068
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
   - platform: rest
     name: kotel_druh_provozu
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2010
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2686
     value_template: '{{ value_json.Data.Value }}'
   - platform: rest
     name: kotel_stav_kotle
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2550
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3059
     value_template: '{{ value_json.Data.Value }}'
   - platform: rest
     name: kotel_teplota_zpatecky
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2398
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3074
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
   - platform: rest
     name: kotel_teplota_prostoru
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2533
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3209
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
   - platform: rest
     name: kotel_venkovni_teplota
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2536
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3212
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
  // Read datapoint Boiler failure 
   - platform: rest
     name: kotel_chybove_hlaseni
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2243
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3198
     value_template: '{{ value_json.Data.Value }}'
  // Read datapoint really temperature hot water 
   - platform: rest
     name: skutecna_teplota_TV
-    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2539
+    resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3215
     value_template: '{{ value_json.Data.Value }}'
     unit_of_measurement: "°C"
     device_class: temperature
@@ -84,19 +84,19 @@
 // send comfort temperature from input_number... entity
 rest_command:
   odeslatdokotleteplotu:
-    url: 'http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2011&Type=Numeric&Value={{ states.input_number.nastaveni_teploty_kotle.state }}'
+    url: 'http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2687&Type=Numeric&Value={{ states.input_number.nastaveni_teploty_kotle.state }}'
 // send Reduced temperature from second input_nuber... entity
   odeslatdokotleutlumovouteplotu:
-    url: 'http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2012&Type=Numeric&Value={{ states.input_number.utlumova_teplota_kotle.state }}'
+    url: 'http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2688&Type=Numeric&Value={{ states.input_number.utlumova_teplota_kotle.state }}'
 // With send Value “Type of Operation” is little more complicated, you need “translate” text string to “enumeration value”
   odeslatdokotle_druhprovozu:
     url: >
          {% if is_state("input_select.kotel_druh_provozu", "Útlum") %}
-           http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2010&Type=Enumeration&Value=2
+           http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2686&Type=Enumeration&Value=2
          {%-elif is_state("input_select.kotel_druh_provozu", "Automatický") %}  
-           http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2010&Type=Enumeration&Value=1
+           http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2686&Type=Enumeration&Value=1
          {%-elif is_state("input_select.kotel_druh_provozu", "Komfortní") %} 
-           http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2010&Type=Enumeration&Value=3
+           http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2686&Type=Enumeration&Value=3
          {% else %}
               none
          {% endif %}
