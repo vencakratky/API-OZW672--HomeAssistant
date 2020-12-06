@@ -1,4 +1,4 @@
-// changing state -> send to OZW
+# changing state -> send to OZW
 - id: '1589750127952'
   alias: odeslat_teplotu_do_kotle
   description: Odeslat teplotu do kotle
