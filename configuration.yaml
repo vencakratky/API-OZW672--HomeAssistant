@@ -1,24 +1,25 @@
- // Create SessionID in local network with user and password -> change ***
- - platform: rest
+sensor:
+# Create SessionID in local network with user and password -> change ***
+  - platform: rest
     resource: http://192.168.X.X/api/auth/login.json?user***&pwd=***
     name: sid_token
     value_template: '{{ value_json.SessionId }}'
     scan_interval: 86400
- // Read Datapoint comfort Temperature from OZW  
+ # Read Datapoint comfort Temperature from OZW  
   - platform: rest
     name: kotel_komfortni_zadana_teplota
     resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2687
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
-// Read Datapoint reduced Temperature from OZW
+ # Read Datapoint reduced Temperature from OZW
   - platform: rest
     name: kotel_utlumova_zadana_teplota
     resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2688
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
-// Read other Datapoints ...
+# Read other Datapoints ...
   - platform: rest
     name: kotel_topna_krivka
     resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2690
@@ -67,12 +68,12 @@
     value_template: '{{ value_json.Data.Value | float }}'
     unit_of_measurement: "°C"
     device_class: temperature
- // Read datapoint Boiler failure 
+ # Read datapoint Boiler failure 
   - platform: rest
     name: kotel_chybove_hlaseni
     resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3198
     value_template: '{{ value_json.Data.Value }}'
- // Read datapoint really temperature hot water 
+ # Read datapoint really temperature hot water 
   - platform: rest
     name: skutecna_teplota_TV
     resource_template: http://192.168.X.X/api/menutree/read_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=3215
@@ -80,15 +81,15 @@
     unit_of_measurement: "°C"
     device_class: temperature
 
-// remote control commands -> write datapoint
-// send comfort temperature from input_number... entity
+# remote control commands -> write datapoint
+# send comfort temperature from input_number... entit
 rest_command:
   odeslatdokotleteplotu:
     url: 'http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2687&Type=Numeric&Value={{ states.input_number.nastaveni_teploty_kotle.state }}'
-// send Reduced temperature from second input_nuber... entity
+# send Reduced temperature from second input_nuber... entity
   odeslatdokotleutlumovouteplotu:
     url: 'http://192.168.X.X/api/menutree/write_datapoint.json?SessionId={{ states.sensor.sid_token.state }}&Id=2688&Type=Numeric&Value={{ states.input_number.utlumova_teplota_kotle.state }}'
-// With send Value “Type of Operation” is little more complicated, you need “translate” text string to “enumeration value”
+# With send Value “Type of Operation” is little more complicated, you need “translate” text string to “enumeration value”
   odeslatdokotle_druhprovozu:
     url: >
          {% if is_state("input_select.kotel_druh_provozu", "Útlum") %}
