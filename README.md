@@ -1,3 +1,4 @@
+<a href="https://www.buymeacoffee.com/kratkyt" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 # API-OZW672--HomeAssistant  
 ## Api připojení webového serveru Siemens OZW672 s aplikací Home Assistant
 ...Doporučuji nejprve otestovat komunikaci v lokální síti přes api webové rozhraní kotle na adrese:   
